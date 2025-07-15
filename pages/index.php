@@ -8,6 +8,8 @@ $read = true;
 
 ?>
 
+<p class="text-lg absolute top-0">Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
+
 <div class="flex flex-col items-center gap-10 text-2xl">
 	<?php include('partials/nav.php'); ?>
 
@@ -21,8 +23,6 @@ $read = true;
 		<?php endif; ?>
 		
 	</div>
-
-	<p class="text-lg">Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
 
 	<!-- <div id="repos" class="text-base flex gap-10"></div> -->
 </div>
