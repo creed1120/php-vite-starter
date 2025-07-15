@@ -13,6 +13,7 @@ $read = true;
 
 	<div class="flex flex-col items-center">
 		<?= VITE_NAME; ?>
+		<?= VITE_GBRANCH; ?>
 
 		<?php if ($read): ?>
 			<p>You have read <?= htmlspecialchars($book); ?>.</p>
