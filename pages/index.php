@@ -1,23 +1,30 @@
 <?php
 require('system/main.php');
 
-$layoutTemplate = new HTML('Modern PHP + Vite sethp')
+$layoutTemplate = new HTML('Modern PHP + Vite sethp');
+
+$book = "Dark Matter";
+$read = true;
+
 ?>
 
 <div class="flex flex-col items-center gap-10 text-2xl">
 	<?php include('partials/nav.php'); ?>
 
-	<div class="flex flex-col items-center text-ye">
+	<div class="flex flex-col items-center">
 		<?= VITE_NAME; ?>
 
-		<div>+</div>
-
-		<img src="%BASE%/logo.svg" class="w-20" />
+		<?php if ($read): ?>
+			<p>You have read <?= htmlspecialchars($book); ?>.</p>
+		<?php else: ?>
+			<p>You have not read <?= htmlspecialchars($book); ?> yet.</p>
+		<?php endif; ?>
+		
 	</div>
 
 
 
-	<div id="repos" class="text-base flex gap-10"></div>
+	<!-- <div id="repos" class="text-base flex gap-10"></div> -->
 </div>
 
 <script src="/src/scripts/repos.ts" type="module"></script>
