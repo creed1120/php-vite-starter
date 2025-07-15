@@ -9,11 +9,7 @@ $layoutTemplate = new HTML('Modern PHP + Vite sethp')
 
 	<div class="flex flex-col items-center text-ye">
 		<?= VITE_NAME; ?>
-		<p>Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
-
-		<div>+</div>
-
-		<img src="%BASE%/logo.svg" class="w-20" />
+		<p class="text-lg">Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
 	</div>
 
 
