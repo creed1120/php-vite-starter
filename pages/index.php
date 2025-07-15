@@ -12,13 +12,13 @@ $read = true;
 	<?php include('partials/nav.php'); ?>
 
 	<div class="flex flex-col items-center">
-		<?= VITE_NAME; ?>
-		<?= VITE_GBRANCH; ?>
+		<h3 class=" text-indigo-500"><?= VITE_NAME; ?></h3>
+		<h3 class=" text-green-500"><?= VITE_BRANCH; ?></h3>
 
 		<?php if ($read): ?>
-			<p>You have read <?= htmlspecialchars($book); ?>.</p>
+			<p class=" mt-10">You have read <?= htmlspecialchars($book); ?>.</p>
 		<?php else: ?>
-			<p>You have not read <?= htmlspecialchars($book); ?> yet.</p>
+			<p class="mt-10">You have not read <?= htmlspecialchars($book); ?> yet.</p>
 		<?php endif; ?>
 		
 	</div>
