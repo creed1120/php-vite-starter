@@ -13,7 +13,6 @@ $read = true;
 
 	<div class="flex flex-col items-center">
 		<h3 class=" text-indigo-500"><?= VITE_NAME; ?></h3>
-		<p class="text-lg">Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
 
 		<?php if ($read): ?>
 			<p class=" mt-10">You have read <?= htmlspecialchars($book); ?>.</p>
@@ -23,7 +22,7 @@ $read = true;
 		
 	</div>
 
-
+	<p class="text-lg">Current Git Branch: <strong><?= VITE_BRANCH; ?></strong></p>
 
 	<!-- <div id="repos" class="text-base flex gap-10"></div> -->
 </div>

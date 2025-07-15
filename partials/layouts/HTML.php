@@ -27,7 +27,7 @@ class HTML {
 				<link href="/src/styles/tailwind.css" rel="stylesheet" />
 				<link href="/src/styles/global.scss" rel="stylesheet" />
 			</head>
-
+			
 			<body class="w-screen h-screen flex items-center justify-center bg-neutral-50">
 				<?= $output; ?>
 			</body>
