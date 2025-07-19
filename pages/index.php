@@ -1,32 +1,48 @@
 <?php
+
 require('system/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-$book = "Dark Matter";
-$read = true;
+$heading_name = "Main Dashboard";
 
-?>
+// custom PHP code
+$books = [
+	[
+		'title' => 'Clean Code',
+		'author' => 'Robert C. Martin',
+		'url' => 'https://www.goodreads.com/book/show/3735293-clean-code',
+		'releaseyear' => '2003'
+	],
+	[
+		'title' => 'The Pragmatic Programmer',
+		'author' => 'Andrew Hunt',
+		'url' => 'https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer',
+		'releaseyear' => '1995'
+	],
+	[
+		'title' => 'Design Patterns: Elements of Reusable Object-Oriented Software',
+		'author' => 'Erich Gamma',
+		'url' => 'https://www.goodreads.com/book/show/85009.Design_Patterns',
+		'releaseyear' => '1987'
+	]
+];
 
-<p class="text-sm text-center text-gray-300 absolute top-0 left-0 block p-2 bg-gray-600 w-screen">
-	Current Git Branch: <strong><?= VITE_BRANCH; ?></strong>
-</p>
+// Filter by author without using the PHP "array_filter" function
+// function filterBooksByAuthor($books, $author) {
+// 	$filteredBooks = [];
+// 	foreach( $books as $book ) {
+// 		if ( $book['author'] === $author ) {
+// 			$filteredBooks[] = $book;
+// 		}
+// 	}
+// 	return $filteredBooks;
+// }
 
-<div class="flex flex-col items-center gap-10 text-2xl">
-	<?php include('partials/nav.php'); ?>
+// Filter using built in PHP "array_filter" function
+$filteredBooks = array_filter($books, function($book) {
+    return $book['author'] === 'Andrew Hunt';
+});
 
-	<div class="flex flex-col items-center">
-		<h3 class=" text-indigo-500"><?= VITE_NAME; ?></h3>
-
-		<?php if ($read): ?>
-			<p class=" mt-10">You have read <?= htmlspecialchars($book); ?>.</p>
-		<?php else: ?>
-			<p class="mt-10">You have not read <?= htmlspecialchars($book); ?> yet.</p>
-		<?php endif; ?>
-		
-	</div>
-
-	<!-- <div id="repos" class="text-base flex gap-10"></div> -->
-</div>
-
-<script src="/src/scripts/repos.ts" type="module"></script>
+// Load the View
+require('partials/views/index.view.php');

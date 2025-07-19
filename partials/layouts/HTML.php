@@ -1,4 +1,5 @@
 <?php
+
 class HTML {
 	public function __construct(public string $title, public string $lang = 'en') {
 		ob_start();
@@ -15,7 +16,7 @@ class HTML {
 ?>
 
 		<!DOCTYPE html>
-		<html lang="<?= $this->lang; ?>">
+		<html lang="<?= $this->lang; ?>" class="h-full bg-gray-100">
 
 			<head>
 				<meta charset="UTF-8" />
@@ -28,7 +29,7 @@ class HTML {
 				<link href="/src/styles/global.scss" rel="stylesheet" />
 			</head>
 			
-			<body class="w-screen h-screen flex items-center justify-center bg-neutral-50">
+			<body class="h-full bg-neutral-50">
 				<?= $output; ?>
 			</body>
 

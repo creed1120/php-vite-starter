@@ -9,6 +9,10 @@ $dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) 
 		include('pages/about.php');
 	});
 
+	$r->addRoute('GET', '/contact', function ($ROUTE_PARAMS) {
+		include('pages/contact.php');
+	});
+
 	$r->addRoute('GET', '/ipsum', function ($ROUTE_PARAMS) {
 		include('pages/ipsum.php');
 	});
