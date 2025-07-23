@@ -1,5 +1,7 @@
 <?php
 
+// require('./functions.php');
+
 class HTML {
 	public function __construct(public string $title, public string $lang = 'en') {
 		ob_start();

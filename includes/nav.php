@@ -13,9 +13,9 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Home</a>
-              <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About Us</a>
-              <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+              <a href="/" aria-current="page" <?php echo isCurrentPage('/') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Home</a>
+              <a href="/about" <?php echo isCurrentPage('/about') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>About Us</a>
+              <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Contact</a>
             </div>
           </div>
         </div>
@@ -49,12 +49,12 @@
                   From: "transform opacity-100 scale-100"
                   To: "transform opacity-0 scale-95"
               -->
-              <div role="menu" tabindex="-1" aria-labelledby="user-menu-button" aria-orientation="vertical" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden">
+              <!-- <div role="menu" tabindex="-1" aria-labelledby="user-menu-button" aria-orientation="vertical" class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden"> -->
                 <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
-                <a id="user-menu-item-0" role="menuitem" href="#" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700">Your Profile</a>
+                <!-- <a id="user-menu-item-0" role="menuitem" href="#" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700">Your Profile</a>
                 <a id="user-menu-item-1" role="menuitem" href="#" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700">Settings</a>
                 <a id="user-menu-item-2" role="menuitem" href="#" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700">Sign out</a>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -80,11 +80,9 @@
     <div id="mobile-menu" class="md:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" aria-current="page" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
+        <a href="/" aria-current="page" <?php echo isCurrentPage('/') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>Home</a>
+        <a href="/about" <?php echo isCurrentPage('/about') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>About Us</a>
+        <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>Contact</a>
       </div>
       <div class="border-t border-gray-700 pt-4 pb-3">
         <div class="flex items-center px-5">
@@ -103,20 +101,19 @@
             </svg>
           </button>
         </div>
-        <div class="mt-3 space-y-1 px-2">
+        <!-- <div class="mt-3 space-y-1 px-2">
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your Profile</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
           <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign out</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
 
   <header class="bg-white shadow-sm">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?php echo $heading_name; ?></h1>
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?php echo $heading_name; ?></h1>
     </div>
-  </header>
-
+</header>
 
 <script src="/src/scripts/nav.ts" type="module"></script>

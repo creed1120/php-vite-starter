@@ -2,17 +2,12 @@
 	Current Git Branch: <strong><?= VITE_BRANCH; ?></strong>
 </p>
 
-<?php include('partials/nav.php'); ?>
+<?php require('includes/nav.php'); ?>
 
 <main>
-	<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-2xl">
-
-		<h2 class="font-black pb-4">Main Dashboard Page</h2>
-
-		<!-- Your content -->
-		 <?php foreach( $filteredBooks as $book ) : ?>
-			<h3><?php echo $book['title'] ?></h3>
-		<?php endforeach; ?>
+	<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+		<h2 class="text-2xl font-black pb-4">Sorry. Page not found.</h2>
+		<a class="text-lg text-blue-600 underline" href="/">&larr; Back to Home</a>
 	</div>
 </main>
 

@@ -1,4 +1,14 @@
 <?php
+/**
+ * Controller for the /contact route.
+ *
+ * This file handles the logic for the main entry point of the application.
+ * Add route handling, data processing, or view rendering as needed.
+ *
+ * @package php-vite-starter
+ * @author Cedric Reed
+ *
+ */
 
 require('system/main.php');
 
@@ -18,4 +28,4 @@ $contactPageArray = [
 ];
 
 // Load the View
-require('partials/views/contact.view.php');
+require('views/contact.view.php');
