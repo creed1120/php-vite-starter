@@ -11,8 +11,8 @@
  */
 
 require('system/main.php');
-// MYSQL db connection
-require('system/database.php');
+// DATABASE CLASS LOADED IN THE "index.php" file
+// require('system/Database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 // Dashboard heading
