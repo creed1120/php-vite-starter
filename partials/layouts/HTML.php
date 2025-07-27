@@ -8,11 +8,11 @@ class HTML {
 		ob_start();
 	}
 
-	// public function addPartials($partialPath) {
-	// 	$partialPath = $partialPath;
+	public function addPartials($partialPath) {
+		$partialPath = $partialPath;
 
-	// 	return require_once($partialPath);
-	// }
+		return require_once($partialPath);
+	}
 
 	public function __destruct() {
 		$output = ob_get_clean();
@@ -53,7 +53,7 @@ class HTML {
 
 				<?php echo $output; ?>
 
-				<!-- <//?php $this->addPartials('includes/footer.php'); ?> -->
+				<?php $this->addPartials('includes/footer.php'); ?>
 			</body>
 
 		</html>
