@@ -2,7 +2,7 @@
 // Initial setup
 
 define('ROOT', __DIR__);
-define('MODE_DEV', '%MODE%' === 'development');
+define('MODE_DEV', '%MODE%' === 'production');
 
 function require_existing(string $path) {
 	file_exists($path) && require_once($path);
