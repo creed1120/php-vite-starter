@@ -1,5 +1,5 @@
-const nav = document.querySelector<HTMLDivElement>('#nav')!;
+// const nav = document.querySelector<HTMLDivElement>('#nav')!;
 
-nav.innerHTML += `<a href="${BASE}/ipsum">Ipsum</a>`;
+// nav.innerHTML += `<a href="${BASE}/ipsum">Ipsum</a>`;
 
-export {};
+// export {};

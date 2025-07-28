@@ -15,7 +15,9 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" aria-current="page" <?php echo isCurrentPage('/') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Home</a>
               <a href="/about" <?php echo isCurrentPage('/about') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>About Us</a>
+              <a href="/notes" <?php echo isCurrentPage('/notes') || isCurrentPage('/note') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Notes</a>
               <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Contact</a>
+              
             </div>
           </div>
         </div>
@@ -82,6 +84,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" aria-current="page" <?php echo isCurrentPage('/') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>Home</a>
         <a href="/about" <?php echo isCurrentPage('/about') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>About Us</a>
+        <a href="/notes" <?php echo isCurrentPage('/notes') || isCurrentPage('/note') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>Notes</a>
         <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"' : 'class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"'; ?>>Contact</a>
       </div>
       <div class="border-t border-gray-700 pt-4 pb-3">
@@ -116,4 +119,4 @@
     </div>
 </header>
 
-<script src="/src/scripts/nav.ts" type="module"></script>
+<!-- <script src="/src/scripts/nav.ts" type="module"></script> -->
