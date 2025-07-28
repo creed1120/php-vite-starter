@@ -20,6 +20,7 @@ class Database {
 
 	// The PDO connection instance
 	public $connection;
+	public $statement;
 
 	public function __construct($config, $user = 'root', $password = '')
 	{
@@ -46,11 +47,30 @@ class Database {
 	public function query($query, $params = []) {
 
 		// MYSQL prepared statment to execute SQL query
-		$statement = $this->connection->prepare($query);
-		$statement->execute($params);
+		$this->statement = $this->connection->prepare($query);
+		$this->statement->execute($params);
 		
 		// make PDO dynamic by returning it and control the "fetch" method from the query
-		return $statement;
+		return $this;
 	}
 
+	public function find() {
+		// Fetch a single row from the result set
+		return $this->statement->fetch();
+	}
+
+	public function findOrFail() {
+		$result = $this->find();
+
+		if (!$result) {
+			abort();
+		}
+		
+		return $result;
+	}
+
+	public function getAll() {
+		// Fetch a single row from the result set
+		return $this->statement->fetchAll();
+	}
 }

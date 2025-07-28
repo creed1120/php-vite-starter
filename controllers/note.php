@@ -22,14 +22,11 @@ $config = require('./config.php');
 $db = new Database($config['database']);
 // $query = "SELECT * FROM notes WHERE user_id = :id";
 $query = "SELECT * FROM notes WHERE id = :id";
+
 $note = $db->query($query, [
         ':id' => $_GET['id']
-    ])->fetch();
-
-if( !$note ) {
-    abort();
-}
-
+    ])->findOrFail();
+    
 $currentUserId = 1;
 
 if( $note['user_id'] !== $currentUserId ) {

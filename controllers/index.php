@@ -35,7 +35,7 @@ $query = "SELECT * FROM posts";
 // $query = "SELECT * FROM posts WHERE id = ?";
 // $query = "SELECT * FROM posts WHERE id = :id";
 
-$posts = $db->query($query)->fetchAll();
+$posts = $db->query($query)->getAll();
 // $posts = $db->query($query, [$id])->fetchAll();
 // $post = $db->query($query, [':id' => $id])->fetch();
 

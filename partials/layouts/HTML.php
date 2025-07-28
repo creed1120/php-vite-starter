@@ -42,11 +42,6 @@ class HTML {
 					<link href="/src/styles/tailwind.css" rel="stylesheet" />
 					<link href="/src/styles/global.scss" rel="stylesheet" />
 				<?php else : ?>
-					
-					<link rel="stylesheet" href="../../dist/public/apple-touch-icon-DhgDR6KX.png" />
-					<link rel="stylesheet" href="../../dist/public/favicon--ogiNFDA.svg" />
-					<link rel="stylesheet" href="../../dist/public/favicon-96x96-CDb9EEmU.png" />
-					<link rel="stylesheet" href="../../dist/public/favicon-DT-YbzIV.ico" />
 
 					<?php
 						// Check if the directory exists
@@ -61,7 +56,6 @@ class HTML {
 							}
 						}
 					?>
-					
 					
 				<?php endif; ?>
 
