@@ -1,8 +1,14 @@
 <?php
+
 // Initial setup
+if($_SERVER['HTTP_HOST'] === 'localhost:3001') {
+	define('MODE_DEV', true);
+} elseif($_SERVER['HTTP_HOST'] === 'localhost:8000') {
+	define('MODE_DEV', false);
+}
+// define('MODE_DEV', '%MODE%' === 'production');
 
 define('ROOT', __DIR__);
-define('MODE_DEV', '%MODE%' === 'development');
 
 function require_existing(string $path) {
 	file_exists($path) && require_once($path);

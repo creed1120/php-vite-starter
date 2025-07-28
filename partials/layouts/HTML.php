@@ -4,6 +4,8 @@
 
 class HTML {
 
+	public $directory = 'dist/public'; // Replace with the actual path to your CSS folder
+
 	public function __construct(public string $title, public string $lang = 'en') {
 		ob_start();
 	}
@@ -30,7 +32,7 @@ class HTML {
 
 				<title><?php echo $this->title; ?></title>
 				
-				<?php if( MODE_DEV ) : ?>
+				<?php if( MODE_DEV == true ) : ?>
 					<link rel="icon" type="image/png" href="../../favicon/favicon-96x96.png" sizes="96x96" />
 					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
 					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
@@ -40,11 +42,27 @@ class HTML {
 					<link href="/src/styles/tailwind.css" rel="stylesheet" />
 					<link href="/src/styles/global.scss" rel="stylesheet" />
 				<?php else : ?>
+					
 					<link rel="stylesheet" href="../../dist/public/apple-touch-icon-DhgDR6KX.png" />
 					<link rel="stylesheet" href="../../dist/public/favicon--ogiNFDA.svg" />
 					<link rel="stylesheet" href="../../dist/public/favicon-96x96-CDb9EEmU.png" />
 					<link rel="stylesheet" href="../../dist/public/favicon-DT-YbzIV.ico" />
-					<link rel="stylesheet" href="../../dist/public/HTML-BwnZl7er.css" />
+
+					<?php
+						// Check if the directory exists
+						if (is_dir($this->directory)) {
+							$files = scandir($this->directory); // Get all files and directories in the specified path
+							foreach ($files as $file) {
+								$filePath = $this->directory . '/' . $file; // Construct the full path to the file
+								// Check if it's a file and has a .css extension
+								if (is_file($filePath) && pathinfo($file, PATHINFO_EXTENSION) === 'css') {
+									echo '<link rel="stylesheet" href="../../dist/public/'. $file .'" />'; // Echo the name of the CSS file
+								}
+							}
+						}
+					?>
+					
+					
 				<?php endif; ?>
 
 			</head>
