@@ -4,7 +4,7 @@
 
 class HTML {
 
-	public $directory = 'dist/public'; // Replace with the actual path to your CSS folder
+	public $directory = 'dist/public'; // Directory to scan for CSS files
 
 	public function __construct(public string $title, public string $lang = 'en') {
 		ob_start();
