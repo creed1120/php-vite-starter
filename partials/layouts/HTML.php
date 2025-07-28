@@ -49,10 +49,11 @@ class HTML {
 
 			</head>
 			
-			<body class="font-inter m-0 p-0">
+			<body class="font-inter">
 
 				<?php echo $output; ?>
 
+				<?php $this->addPartials('includes/gitbranch.php'); ?>
 				<?php $this->addPartials('includes/footer.php'); ?>
 			</body>
 
