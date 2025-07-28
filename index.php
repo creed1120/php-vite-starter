@@ -9,6 +9,8 @@ function require_existing(string $path) {
 }
 
 require_existing('functions.php');
+require_existing('system/Database.php');
+require_existing('system/Response.php');
 require_existing('vendor/autoload.php');
 require_existing('configs/env.php');
 require_existing('configs/router.php');
