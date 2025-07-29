@@ -11,6 +11,7 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <button class="btn btn-primary mt-4">Add a Note</button>
 	</div>
 </main>
 

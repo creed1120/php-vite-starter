@@ -26,12 +26,10 @@ $query = "SELECT * FROM notes WHERE id = :id";
 $note = $db->query($query, [
         ':id' => $_GET['id']
     ])->findOrFail();
-    
+
 $currentUserId = 1;
 
-if( $note['user_id'] !== $currentUserId ) {
-    abort(Response::FORBIDDEN);
-}
+authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
 // Load the View
 require('views/note.view.php');

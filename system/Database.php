@@ -54,6 +54,12 @@ class Database {
 		return $this;
 	}
 
+	/**
+	 * PDO class methods we now have access to on the Database class
+	 * (we can now use the Database class as a PDO class)
+	 *
+	 * @return void
+	 */
 	public function find() {
 		// Fetch a single row from the result set
 		return $this->statement->fetch();
@@ -61,16 +67,16 @@ class Database {
 
 	public function findOrFail() {
 		$result = $this->find();
-
+		// If no result is found, throw an exception or handle the error
 		if (!$result) {
 			abort();
 		}
-		
+		// Otherwise, return the result
 		return $result;
 	}
 
 	public function getAll() {
-		// Fetch a single row from the result set
+		// Fetch ALL single row from the result set
 		return $this->statement->fetchAll();
 	}
 }

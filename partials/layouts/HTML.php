@@ -23,7 +23,7 @@ class HTML {
 ?>
 
 		<!DOCTYPE html>
-		<html lang="<?= $this->lang; ?>" class="bg-gray-200">
+		<html lang="<?= $this->lang; ?>" class="bg-gray-200" data-theme="halloween">
 
 			<head>
 				<meta charset="UTF-8" />
@@ -61,7 +61,7 @@ class HTML {
 
 			</head>
 			
-			<body class="font-inter">
+			<body class="font-inter text-gray-800">
 
 				<?php echo $output; ?>
 

@@ -4,17 +4,31 @@
 
 <?php require('includes/nav.php'); ?>
 
-<main>
-	<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-2xl">
 
-		<!-- <//?php echo $post['title']; ?> -->
+	<section class="bg-white lg:grid lg:place-content-center dark:bg-gray-900 text-white">
+		<div class="mx-auto w-screen px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+			<div class="mx-auto max-w-prose text-center">
+				<!-- <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
+					Understand user flow and
+					<strong class="text-indigo-600"> increase </strong>
+					conversions
+				</h1> -->
 
-		<?php foreach( $posts as $post ) : ?>
-			<h1><?php echo htmlspecialchars($post['title'] ?? ''); ?></h1>
-		<?php endforeach; ?>
+				<?php foreach( $posts as $post ) : ?>
+					<h1 class="text-4xl"><?php echo htmlspecialchars($post['title'] ?? ''); ?></h1>
+				<?php endforeach; ?>
 
-	</div>
-</main>
+				<p class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed dark:text-gray-200">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
+					accusamus impedit minima harum corporis iusto.
+				</p>
+
+				<div class="mt-4 flex justify-center gap-4 sm:mt-6">
+					<button class="btn btn-outline btn-secondary">Secondary</button>
+				</div>
+			</div>
+		</div>
+	</section>
 
 <!-- <div id="repos" class="text-base flex gap-10"></div> -->
 

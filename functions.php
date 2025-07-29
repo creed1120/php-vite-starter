@@ -1,4 +1,6 @@
 <?php
+// Helper functions for the application
+
 /**
  * Function to render var_dump variables with Pre tags
  *
@@ -20,4 +22,15 @@ function var_dd($value) {
  */
 function isCurrentPage($url) {
     return $_SERVER['REQUEST_URI'] === $url;
+}
+
+/**
+ * Checks if the current user is authorized to perform an action.
+ *
+ * @return bool
+ */
+function authorize($condition, $status = Response::FORBIDDEN) {
+	if( !$condition ) {
+		abort($status);
+	}
 }
