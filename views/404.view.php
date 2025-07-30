@@ -1,6 +1,8 @@
-<!-- <p class="text-sm text-center text-gray-300 absolute bottom-0 left-0 block p-2 bg-gray-600 w-screen">
-	Current Git Branch: <strong><//?= VITE_BRANCH; ?></strong>
-</p> -->
+<?php
+include('includes/nav.php');
+$partials = new HTML();
+
+?>
 
 <?php require('includes/nav.php'); ?>
 
@@ -11,6 +13,9 @@
 	</div>
 </main>
 
-<!-- <div id="repos" class="text-base flex gap-10"></div> -->
+<div id="repos" class="text-base flex gap-10"></div>
 
-<!-- <script src="/src/scripts/repos.ts" type="module"></script> -->
+<script src="/src/scripts/repos.ts" type="module"></script>
+
+<?php $partials->addPartials('includes/gitbranch.php'); ?>
+<?php $partials->addPartials('includes/footer.php'); ?>

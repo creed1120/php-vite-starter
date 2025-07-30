@@ -6,7 +6,7 @@ class HTML {
 
 	public $directory = 'dist/public'; // Directory to scan for CSS files
 
-	public function __construct(public string $title, public string $lang = 'en') {
+	public function __construct(public string $title = '', public string $lang = 'en') {
 		ob_start();
 	}
 
@@ -34,19 +34,14 @@ class HTML {
 				
 				<?php if( MODE_DEV == true ) : ?>
 
-					<link rel="icon" type="image/png" href="../../favicon/favicon-96x96.png" sizes="96x96" />
+					<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" sizes="96x96" />
 					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
 					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
-					<link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png" />
 					<link rel="manifest" href="../../favicon/site.webmanifest" />
 
 					<link href="/src/styles/tailwind.css" rel="stylesheet" />
 					<link href="/src/styles/global.scss" rel="stylesheet" />
 					<script type="module" src="/src/scripts/custom.js"></script>
-
-					<script type="module">
-						import "cally";
-					</script>
 
 				<?php else : ?>
 
@@ -72,11 +67,7 @@ class HTML {
 			</head>
 			
 			<body class="font-inter text-gray-800">
-
 				<?php echo $output; ?>
-
-				<?php $this->addPartials('includes/gitbranch.php'); ?>
-				<?php $this->addPartials('includes/footer.php'); ?>
 			</body>
 
 		</html>

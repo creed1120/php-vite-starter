@@ -10,8 +10,6 @@
  */
 
 require('system/main.php');
-// DATABASE CLASS LOADED IN THE "index.php" file
-// require('system/Database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 $heading_name = "Create Note";

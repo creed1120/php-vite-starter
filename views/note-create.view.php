@@ -1,5 +1,6 @@
 <?php
 include('includes/nav.php');
+$partials = new HTML();
 
 // $thePostReq = $_POST;
 // if (isset($thePostReq['body'])) {
@@ -36,4 +37,7 @@ include('includes/nav.php');
     </div>
 </main>
         
-<!-- <script src="/src/scripts/repos.ts" type="module"></script> -->
+<script src="/src/scripts/repos.ts" type="module"></script>
+
+<?php $partials->addPartials('includes/gitbranch.php'); ?>
+<?php $partials->addPartials('includes/footer.php'); ?>

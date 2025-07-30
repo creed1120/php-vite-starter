@@ -17,7 +17,6 @@
               <a href="/about" <?php echo isCurrentPage('/about') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>About Us</a>
               <a href="/notes" <?php echo isCurrentPage('/notes') || isCurrentPage('/note') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Notes</a>
               <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Contact</a>
-              
             </div>
           </div>
         </div>
