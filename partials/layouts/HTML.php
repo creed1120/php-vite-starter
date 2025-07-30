@@ -23,7 +23,7 @@ class HTML {
 ?>
 
 		<!DOCTYPE html>
-		<html lang="<?= $this->lang; ?>" class="bg-gray-200" data-theme="halloween">
+		<html lang="<?= $this->lang; ?>" class="bg-gray-200" data-theme="forest">
 
 			<head>
 				<meta charset="UTF-8" />
@@ -33,6 +33,7 @@ class HTML {
 				<title><?php echo $this->title; ?></title>
 				
 				<?php if( MODE_DEV == true ) : ?>
+
 					<link rel="icon" type="image/png" href="../../favicon/favicon-96x96.png" sizes="96x96" />
 					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
 					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
@@ -41,6 +42,12 @@ class HTML {
 
 					<link href="/src/styles/tailwind.css" rel="stylesheet" />
 					<link href="/src/styles/global.scss" rel="stylesheet" />
+					<script type="module" src="/src/scripts/custom.js"></script>
+
+					<script type="module">
+						import "cally";
+					</script>
+
 				<?php else : ?>
 
 					<?php
@@ -52,6 +59,9 @@ class HTML {
 								// Check if it's a file and has a .css extension
 								if (is_file($filePath) && pathinfo($file, PATHINFO_EXTENSION) === 'css') {
 									echo '<link rel="stylesheet" href="../../dist/public/'. $file .'" />'; // Echo the name of the CSS file
+								}
+								if (is_file($filePath) && pathinfo($file, PATHINFO_EXTENSION) === 'js') {
+									echo '<script type="module" src="../../dist/public/'. $file .'"></script>'; // Echo the name of the JS file
 								}
 							}
 						}

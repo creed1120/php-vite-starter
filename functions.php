@@ -4,7 +4,7 @@
 /**
  * Function to render var_dump variables with Pre tags
  *
- * @param [string] $value
+ * @param mixed $value The variable to dump
  * @return void
  */
 function var_dd($value) {

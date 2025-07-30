@@ -1,25 +1,12 @@
 <?php
+/**
+ * Route the request to the appropriate controller based on the URI.
+ *
+ * @param string $uri The request URI.
+ * @param array $routes The defined routes.
+ */
 
-/***************************
- * Simple custom Routing
- ***************************/
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-// if( $uri === '/' ) {
-// 	require 'controllers/index.php';
-// } elseif($uri === '/about') {
-// 	require 'controllers/about.php';
-// } elseif($uri === '/contact') {
-// 	require 'controllers/contact.php';
-// }
-
-$routes = [
-	'/' 		=> 'controllers/index.php',
-	'/about' 	=> 'controllers/about.php',
-	'/notes' 	=> 'controllers/notes.php',
-	'/note' 	=> 'controllers/note.php',
-	'/contact' 	=> 'controllers/contact.php',
-];
+$routes = require('configs/routes.php');
 
 function routeToController($uri, $routes) {
 	if( array_key_exists($uri, $routes) ) {
@@ -34,5 +21,7 @@ function abort($status_code = 404) {
 	require("./controllers/{$status_code}.php");
 	die();
 }
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 routeToController($uri, $routes);

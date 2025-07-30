@@ -5,26 +5,26 @@
 <?php require('includes/nav.php'); ?>
 
 
-	<section class="bg-white lg:grid lg:place-content-center dark:bg-gray-900 text-white">
+	<section class="bg-white lg:grid dark:bg-gray-900 text-white">
 		<div class="mx-auto w-screen px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-			<div class="mx-auto max-w-prose text-center">
-				<!-- <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl dark:text-white">
-					Understand user flow and
-					<strong class="text-indigo-600"> increase </strong>
-					conversions
-				</h1> -->
+			<div class="mx-auto w-10/12">
 
-				<?php foreach( $posts as $post ) : ?>
-					<h1 class="text-4xl"><?php echo htmlspecialchars($post['title'] ?? ''); ?></h1>
-				<?php endforeach; ?>
+				<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
 
-				<p class="mt-4 text-base text-pretty text-gray-700 sm:text-lg/relaxed dark:text-gray-200">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
-					accusamus impedit minima harum corporis iusto.
-				</p>
+					<?php foreach( $posts as $post ) : ?>
+						 <div class="h-32 p-6 rounded bg-gray-600">
+							<h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+								<?php echo htmlspecialchars($post['title']); ?>
+							</h3>
+							<p class="text-sm text-gray-600 dark:text-gray-400">
+								<?php echo htmlspecialchars($post['excerpt']); ?>
+							</p>
+							<a href="/post?id=<?php echo $post['id']; ?>" class="text-blue-500 hover:underline mt-4 inline-block">
+								Read more
+							</a>
+						</div>
+					<?php endforeach; ?>
 
-				<div class="mt-4 flex justify-center gap-4 sm:mt-6">
-					<button class="btn btn-outline btn-secondary">Secondary</button>
 				</div>
 			</div>
 		</div>
