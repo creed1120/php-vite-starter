@@ -32,7 +32,7 @@ $currentUserId = 1;
 authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
 // Load the View
-require view('notes/show.view.php', [
+view('notes/show.view.php', [
     'heading_name' => 'Note',
     'note' => $note
 ]);

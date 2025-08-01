@@ -24,7 +24,7 @@ export default defineConfig(({ command }) => {
 					'index.php',
 					'configs/env.php',
 					'pages/**/*.php',
-					'partials/**/*.php',
+					'partials/**/*.php'
 				],
 				rewriteUrl(requestUrl) {
 					if (

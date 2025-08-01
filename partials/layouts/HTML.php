@@ -1,7 +1,5 @@
 <?php
 
-// require('./functions.php');
-
 class HTML {
 
 	public $directory = 'dist/public'; // Directory to scan for CSS files

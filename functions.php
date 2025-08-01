@@ -54,9 +54,8 @@ function addPartials($partialPath) {
  * @return void
  */
 function base_path($path) {
-	return BASE_PATH . $path;
+	return ROOT . '/' . $path;
 }
-
 /**
  * Function to render the page view
  *

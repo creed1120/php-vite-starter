@@ -28,7 +28,7 @@ $contactPageArray = [
 ];
 
 // Load the View
-require view('contact.view.php', [
+view('contact.view.php', [
 	'heading_name' => 'Contact Us',
 	'contactPageArray' => $contactPageArray
 ]);

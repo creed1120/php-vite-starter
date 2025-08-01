@@ -28,7 +28,7 @@ $aboutPageArray = [
 ];
 
 // Load the View
-require view('about.view.php', [
+view('about.view.php', [
 	'heading_name' => 'About Us',
 	'aboutPageArray' => $aboutPageArray
 ]);

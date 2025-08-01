@@ -6,7 +6,7 @@
  * @param array $routes The defined routes.
  */
 
-$routes = require('configs/routes.php');
+$routes = require('./configs/routes.php');
 
 function routeToController($uri, $routes) {
 	if( array_key_exists($uri, $routes) ) {
@@ -18,7 +18,7 @@ function routeToController($uri, $routes) {
 
 function abort($status_code = 404) {
 	http_response_code($status_code);
-	require("./controllers/{$status_code}.php");
+	require("/controllers/{$status_code}.php");
 	die();
 }
 

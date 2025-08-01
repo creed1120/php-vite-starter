@@ -16,7 +16,7 @@ require('system/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 // Dashboard heading
-// $heading_name = "Main Dashboard";
+$heading_name = "Main Dashboard";
 
 // store the data that is returned from the "config.php" file in the $config variable
 $config = require('./config.php');
@@ -82,7 +82,7 @@ $posts = $db->query($query)->getAll();
 // });
 
 // Load the View
-require view('index.view.php', [
-    'heading_name' => 'Home',
+view('index.view.php', [
+    'heading_name' => 'Main Dashboard',
     'posts' => $posts
 ]);
