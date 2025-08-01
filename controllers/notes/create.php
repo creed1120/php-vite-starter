@@ -35,11 +35,11 @@ $db = new Database($config['database']);
  * Validate the input and insert the note into the database.
  ***********************************************************************/
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Initialize an empty array to store validation errors
+// This will be used to store any errors that occur during validation
+$errors = [];
 
-    // Initialize an empty array to store validation errors
-    // This will be used to store any errors that occur during validation
-    $errors = [];
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate the note body input
     // Check if the note body is provided and meets the length requirements
