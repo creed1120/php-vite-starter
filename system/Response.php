@@ -8,6 +8,8 @@
  *
  */
 
+namespace system;
+
 class Response {
 
     // Constants used to be more clear to developers and users

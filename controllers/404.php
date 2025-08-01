@@ -7,6 +7,6 @@ $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 // $heading_name = "404 Error";
 
 // Load the View
-require view('404.view.php', [
+view('404.view.php', [
     'heading_name' => '404 Error'
 ]);

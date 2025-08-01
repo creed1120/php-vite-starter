@@ -1,6 +1,8 @@
 <?php
 // Helper functions for the application
 
+use system\Response;
+
 /**
  * Function to render var_dump variables with Pre tags
  *
@@ -54,7 +56,7 @@ function addPartials($partialPath) {
  * @return void
  */
 function base_path($path) {
-	return ROOT . '/' . $path;
+	return ROOT . $path;
 }
 /**
  * Function to render the page view

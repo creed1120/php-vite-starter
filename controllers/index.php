@@ -10,18 +10,22 @@
  *
  */
 
+use system\Database;
+
 require('system/main.php');
 // MYSQL db connection
 // require('system/database.php');
 
-$layoutTemplate = new HTML('Modern PHP + Vite sethp');
+$layoutTemplate = new HTML('Modern PHP + Vite setup');
 // Dashboard heading
-$heading_name = "Main Dashboard";
+// $heading_name = "Main Dashboard";
 
 // store the data that is returned from the "config.php" file in the $config variable
 $config = require('./config.php');
 // Instantiate the a new instance of the Database class
 $db = new Database($config['database']);
+
+
 
 // Store the results in the "$posts" variable
 // we need to bind the "$params" from the url query string with a "?"

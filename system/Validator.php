@@ -1,5 +1,7 @@
 <?php
 
+namespace system;
+
 class Validator {
     /**
      * Check if a string is within the specified length range.

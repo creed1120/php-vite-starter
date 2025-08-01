@@ -9,6 +9,9 @@
  * @author Cedric Reed
  **********************************************************************/
 
+use system\Database;
+use system\Validator;
+
 require('system/main.php');
 
 // Initialize the HTML layout with a title and language
