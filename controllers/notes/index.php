@@ -10,9 +10,9 @@
  *
  */
 
-use system\Database;
+use System\Database;
 
-require('system/main.php');
+require('System/main.php');
 // DATABASE CLASS LOADED IN THE "index.php" file
 // require('system/Database.php');
 

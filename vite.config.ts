@@ -65,7 +65,7 @@ export default defineConfig(({ command }) => {
 			viteStaticCopy({
 				targets: [
 					{ src: 'public', dest: '' },
-					{ src: 'system', dest: '' },
+					{ src: 'System', dest: '' },
 					{ src: 'configs', dest: '', overwrite: false },
 					{ src: 'vendor', dest: '' },
 				],

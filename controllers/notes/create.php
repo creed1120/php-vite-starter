@@ -9,10 +9,10 @@
  * @author Cedric Reed
  **********************************************************************/
 
-use system\Database;
-use system\Validator;
+use System\Database;
+use System\Validator;
 
-require('system/main.php');
+require('System/main.php');
 
 // Initialize the HTML layout with a title and language
 // This will be used to render the HTML structure of the page

@@ -10,9 +10,9 @@
  *
  */
 
-use system\Database;
+use System\Database;
 
-require('system/main.php');
+require('System/main.php');
 // MYSQL db connection
 // require('system/database.php');
 

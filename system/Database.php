@@ -16,7 +16,7 @@
  * @method void close() Closes the database connection.
  */
 
-namespace system;
+namespace System;
 
 use PDO;
 use PDOException;

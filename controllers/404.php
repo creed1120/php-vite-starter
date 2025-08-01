@@ -1,6 +1,6 @@
 <?php
 
-require('system/main.php');
+require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 

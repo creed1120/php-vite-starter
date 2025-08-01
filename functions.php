@@ -1,7 +1,7 @@
 <?php
 // Helper functions for the application
 
-use system\Response;
+use System\Response;
 
 /**
  * Function to render var_dump variables with Pre tags
