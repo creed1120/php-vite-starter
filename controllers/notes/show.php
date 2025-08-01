@@ -15,7 +15,7 @@ require('system/main.php');
 // require('system/Database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
-$heading_name = "Note";
+// $heading_name = "Note";
 
 $config = require('./config.php');
 
@@ -32,4 +32,7 @@ $currentUserId = 1;
 authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
 // Load the View
-require('views/notes/show.view.php');
+require view('notes/show.view.php', [
+    'heading_name' => 'Note',
+    'note' => $note
+]);

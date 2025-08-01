@@ -46,3 +46,26 @@ function addPartials($partialPath) {
 
 	return require_once($partialPath);
 }
+
+/**
+ * Gets the project ROOT path and takes in a string path to file
+ *
+ * @param string $path
+ * @return void
+ */
+function base_path($path) {
+	return BASE_PATH . $path;
+}
+
+/**
+ * Function to render the page view
+ *
+ * @param string $path
+ * @return string
+ */
+function view($path, $attributes = []) {
+
+	extract($attributes);
+
+	require base_path('views/' . $path);
+}

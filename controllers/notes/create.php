@@ -19,10 +19,10 @@ $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 // Set the heading name for the page
 // This will be used in the view to display the title of the page
 // It can be used for SEO purposes or to provide context to the user
-$heading_name = "Create Note";
+// $heading_name = "Create Note";
 
 // Include the Validator class for form validation
-require 'system/Validator.php';
+$validate = require 'system/Validator.php';
 
 // store the data that is returned from the "config.php" file in the $config variable
 $config = require('./config.php');
@@ -63,4 +63,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Load the View
-require('views/notes/create.view.php');
+view('notes/create.view.php', [
+    'heading_name' => 'Create Note',
+    'errors' => $errors
+]);

@@ -14,7 +14,7 @@ require('system/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-$heading_name = "Contact Us";
+// $heading_name = "Contact Us";
 
 $contactPageArray = [
 	[
@@ -28,4 +28,7 @@ $contactPageArray = [
 ];
 
 // Load the View
-require('views/contact.view.php');
+require view('contact.view.php', [
+	'heading_name' => 'Contact Us',
+	'contactPageArray' => $contactPageArray
+]);

@@ -15,7 +15,7 @@ require('system/main.php');
 // require('system/Database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
-$heading_name = "My Notes";
+// $heading_name = "My Notes";
 
 $config = require('./config.php');
 
@@ -24,4 +24,7 @@ $query = "SELECT * FROM notes WHERE user_id = 1";
 $notes = $db->query($query)->getAll();
 
 // Load the View
-require('views/notes/index.view.php');
+require view('notes/index.view.php', [
+    'heading_name' => 'My Notes',
+    'notes' => $notes
+]);

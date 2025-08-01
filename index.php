@@ -10,6 +10,8 @@ if($_SERVER['HTTP_HOST'] === 'localhost:3001') {
 
 define('ROOT', __DIR__);
 
+define('BASE_PATH', dirname(ROOT) . '/');
+
 function require_existing(string $path) {
 	file_exists($path) && require_once($path);
 }
