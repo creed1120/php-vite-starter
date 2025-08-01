@@ -34,3 +34,15 @@ function authorize($condition, $status = Response::FORBIDDEN) {
 		abort($status);
 	}
 }
+
+/**
+ * Function to check if a file exists and require it
+ *
+ * @param string $path The path to the file
+ * @return void
+ */
+function addPartials($partialPath) {
+	$partialPath = $partialPath;
+
+	return require_once($partialPath);
+}

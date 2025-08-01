@@ -79,4 +79,5 @@ class Database {
 		// Fetch ALL single row from the result set
 		return $this->statement->fetchAll();
 	}
+
 }

@@ -1,8 +1,4 @@
-<?php
-include('includes/nav.php');
-$partials = new HTML();
-
-?>
+<?php include('includes/nav.php'); ?>
 
 <p class="text-sm text-center text-gray-300 absolute bottom-0 left-0 block p-2 bg-gray-600 w-screen">
 	Current Git Branch: <strong><?= VITE_BRANCH; ?></strong>
@@ -21,5 +17,5 @@ $partials = new HTML();
 
 <script src="/src/scripts/repos.ts" type="module"></script>
 
-<?php $partials->addPartials('includes/gitbranch.php'); ?>
-<?php $partials->addPartials('includes/footer.php'); ?>
+<?php addPartials('includes/gitbranch.php'); ?>
+<?php addPartials('includes/footer.php'); ?>

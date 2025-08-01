@@ -10,12 +10,6 @@ class HTML {
 		ob_start();
 	}
 
-	public function addPartials($partialPath) {
-		$partialPath = $partialPath;
-
-		return require_once($partialPath);
-	}
-
 	public function __destruct() {
 		$output = ob_get_clean();
 
@@ -44,6 +38,11 @@ class HTML {
 					<script type="module" src="/src/scripts/custom.js"></script>
 
 				<?php else : ?>
+
+					<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" sizes="96x96" />
+					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
+					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
+					<link rel="manifest" href="../../favicon/site.webmanifest" />
 
 					<?php
 						// Check if the directory exists
