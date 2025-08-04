@@ -26,7 +26,6 @@ $config = require('./config.php');
 $db = new Database($config['database']);
 
 
-
 // Store the results in the "$posts" variable
 // we need to bind the "$params" from the url query string with a "?"
 // and add them as the 2nd argument in the "query()" method i.e [$id]

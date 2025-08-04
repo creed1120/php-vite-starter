@@ -22,6 +22,7 @@ $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 $config = require('./config.php');
 
 $db = new Database($config['database']);
+
 $query = "SELECT * FROM notes WHERE user_id = 1";
 $notes = $db->query($query)->getAll();
 

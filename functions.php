@@ -26,14 +26,20 @@ function isCurrentPage($url) {
     return $_SERVER['REQUEST_URI'] === $url;
 }
 
+function abort($status_code = 404) {
+	http_response_code($status_code);
+	require(base_path("controllers/{$status_code}.php"));
+	die();
+}
+
 /**
  * Checks if the current user is authorized to perform an action.
  *
  * @return bool
  */
-function authorize($condition, $status = Response::FORBIDDEN) {
+function authorize($condition, $status_code = Response::FORBIDDEN) {
 	if( !$condition ) {
-		abort($status);
+		abort($status_code);
 	}
 }
 

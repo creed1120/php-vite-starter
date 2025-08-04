@@ -18,7 +18,6 @@ require('System/main.php');
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
 $config = require('./config.php');
-
 $db = new Database($config['database']);
 
 $currentUserId = 1;
@@ -28,8 +27,9 @@ $note = $db->query('SELECT * FROM notes WHERE id = :id', ['id' => $_GET['id']
 
 authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
 
-// Load the View
-view('notes/show.view.php', [
-    'heading_name' => 'Note',
-    'note' => $note
+$db->query('DELETE FROM notes WHERE id = :id', [
+    'id' => $_POST['id']
 ]);
+
+header('Location: /notes');
+exit();

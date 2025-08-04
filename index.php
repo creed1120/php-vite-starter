@@ -16,19 +16,25 @@ function require_existing(string $path) {
 }
 
 // Auto loads classes from the /system folder
-// spl_autoload_register(function ($class) {
+// spl_autoload_register(function ($class) {e
 // 	require base_path('system/' . $class . '.php');
 // });
 
-// Database.php <- Class loaded from Composer autoload.php
-// Response.php <- Class loaded from Composer autoload.php
-require_existing('vendor/autoload.php');
+// Database.php 	  <- Class loaded from Composer autoload.php
+// Response.php 	  <- Class loaded from Composer autoload.php
+// configs/router.php <- Class loaded from Composer autoload.php
+require_existing('vendor/autoload.php'); // <- Autoloads all classes through Composer from Namspaces
 require_existing('functions.php');
 require_existing('configs/env.php');
-require_existing('configs/router.php');
 
-// try {
-// 	require_existing('configs/router.php');
-// } catch (\Throwable $th) {
-// 	die('Error: ' . $th->getMessage());
-// }
+$router = new configs\Router();
+
+$routes = require base_path('configs/routes.php');
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri, $method);
+
+// routeToController($uri, $routes);
