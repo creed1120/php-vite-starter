@@ -1,4 +1,4 @@
-<span style="display: inline-flex; justify-content: center;">
+<span style="display: inline-flex; width: 100%; justify-content: center;">
 <div>
 <img src="./public/php-seeklogo.png" style="width:10%;" />
 <img src="https://github.com/vitejs/vite/blob/main/docs/public/logo.svg" style="width:8%;" />
