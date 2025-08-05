@@ -1,6 +1,4 @@
-<img src="https://nititech.de/kosmo-header.png" style="width: 100%;" />
 
-<h1 style="margin-bottom:0">
 ```
  ________  ___  ___  ________        ___      ___ ___  _________  _______           ________  _________  ________  ________  _________  _______   ________     
 |\   __  \|\  \|\  \|\   __  \      |\  \    /  /|\  \|\___   ___\\  ___ \         |\   ____\|\___   ___\\   __  \|\   __  \|\___   ___\\  ___ \ |\   __  \    
@@ -11,7 +9,6 @@
     \|__|     \|__|\|__|\|__|           \|__|/       \|__|    \|__|  \|_______|       |\_________\   \|__|  \|__|\|__|\|__|\|__|    \|__|  \|_______|\|__|\|__|
                                                                                       \|_________|                                                             
                                                                                                                                                                             ```                                                                                                                                  
-</h1>
 
 php-vite-starter is a modern vanilla PHP-Vite starter repository designed to provide developers with the essential tools to kickstart their development of modern PHP applications.\
 This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` plugin](https://github.com/donnikitos/vite-plugin-php) to improve developer experience and provide various features to streamline development.
