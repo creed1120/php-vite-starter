@@ -14,8 +14,6 @@ require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-// $heading_name = "About Us";
-
 $aboutPageArray = [
 	[
 		'pagename' => 'About Us Page',

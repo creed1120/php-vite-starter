@@ -2,8 +2,15 @@
 
 namespace System;
 
+/**
+ * This App class provides a way to make the Container class a Singleton
+ * from the protected static $container property that is returned from the
+ * container() method.
+ */
+
 class App
 {
+    // maked the container class availabe anywhere in the application
     protected static $container;
 
     public static function setContainer($container)

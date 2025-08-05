@@ -6,11 +6,9 @@
 
         <p class="text-2xl"><?php echo htmlspecialchars($note['body']); ?></p>
 
-        <form class="mt-5" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="id" value="<?php echo $note['id'] ?? '' ?>">
-            <button class="btn btn-soft btn-error" type="submit">Delete Note</button>
-        </form>
+        <span class="grid-cols-1 gap-4 lg:inline-flex">
+            <a class="btn btn-warning mt-5" href="/note/edit?id=<?php echo $note['id']; ?>">Edit Note</a>
+        </span>
     </div>
 </main>
 

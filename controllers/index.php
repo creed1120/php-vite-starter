@@ -10,21 +10,24 @@
  *
  */
 
-use System\Database;
+// use System\Database;
+use System\App;
 
 require('System/main.php');
-// MYSQL db connection
-// require('system/database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite setup');
-// Dashboard heading
-// $heading_name = "Main Dashboard";
 
+/*******************************************************************
+ * We have created a Container class (/System/Container) to build up the
+ * Instantiation of our database, so we don't have to Instantiate
+ * multiple times throughout files
+ *******************************************************************/
 // store the data that is returned from the "config.php" file in the $config variable
-$config = require('./config.php');
+// $config = require('./config.php');
 // Instantiate the a new instance of the Database class
-$db = new Database($config['database']);
+// $db = new Database($config['database']);
 
+$db = App::resolve('\System\Database');
 
 // Store the results in the "$posts" variable
 // we need to bind the "$params" from the url query string with a "?"
@@ -86,6 +89,6 @@ $posts = $db->query($query)->getAll();
 
 // Load the View
 view('index.view.php', [
-    'heading_name' => 'Main Dashboard',
+    'heading_name' => 'Dashboard',
     'posts' => $posts
 ]);

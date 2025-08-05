@@ -15,5 +15,4 @@ $container->bind('\System\Database', function() {
 });
 
 // $db = $container->resolve('\System\Database');
-
 App::setContainer($container);

@@ -1,6 +1,7 @@
 <?php
 
-use System\Database;
+// use System\Database;
+use System\App;
 use System\Validator;
 
 require('System/main.php');
@@ -10,15 +11,11 @@ require('System/main.php');
 // The title will be displayed in the browser tab and the language is set to English
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-// store the data that is returned from the "config.php" file in the $config variable
-$config = require('./config.php');
-// Instantiate the a new instance of the Database class
-$db = new Database($config['database']);
+$db = App::resolve('\System\Database');
 
 // Validate the note body input
 // Check if the note body is provided and meets the length requirements
 // If the validation fails, add an error message to the $errors array
-
 $errors = [];
 
 if(! Validator::chkString($_POST['note-body'], 1, 1000)) {

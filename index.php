@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Initial setup
 
 // define('MODE_DEV', '%MODE%' === 'production');

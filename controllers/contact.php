@@ -14,8 +14,6 @@ require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-// $heading_name = "Contact Us";
-
 $contactPageArray = [
 	[
 		'pagename' => 'Contact Us Page',
@@ -29,6 +27,6 @@ $contactPageArray = [
 
 // Load the View
 view('contact.view.php', [
-	'heading_name' => 'Contact Us',
+	'heading_name' => $_SESSION['last'],
 	'contactPageArray' => $contactPageArray
 ]);

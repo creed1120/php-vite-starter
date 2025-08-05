@@ -10,18 +10,14 @@
  *
  */
 
-use System\Database;
+// use System\Database;
+use System\App;
 
 require('System/main.php');
-// DATABASE CLASS LOADED IN THE "index.php" file
-// require('system/Database.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
-// $heading_name = "My Notes";
 
-$config = require('./config.php');
-
-$db = new Database($config['database']);
+$db = App::resolve('\System\Database');
 
 $query = "SELECT * FROM notes WHERE user_id = 1";
 $notes = $db->query($query)->getAll();

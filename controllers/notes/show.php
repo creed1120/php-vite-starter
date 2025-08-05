@@ -10,16 +10,15 @@
  *
  */
 
-use System\Database;
+// use System\Database;
 use System\Response;
+use System\App;
 
 require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-$config = require('./config.php');
-
-$db = new Database($config['database']);
+$db = App::resolve('\System\Database');
 
 $currentUserId = 1;
 
