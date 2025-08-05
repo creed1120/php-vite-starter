@@ -4,6 +4,6 @@
 <img src="./public/tailwind-css-seeklogo.png" style="width:10%;" />
 </span>
 
-<h1>PHP-Vite Starter Template with Tailwindcss 4</h1>
+<div style="font-size: 24px;">PHP-Vite Starter Template with Tailwindcss 4</div>
 
 ## Features
