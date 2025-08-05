@@ -12,13 +12,22 @@
 
 use System\Database;
 use System\Response;
+use System\App;
 
 require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
 
-$config = require('./config.php');
-$db = new Database($config['database']);
+/*******************************************************************
+ * We have created a Container class to build up the
+ * Instantiation of our database, so we don't have to Instantiate
+ * multiple times throughout files
+ *******************************************************************/
+// $config = require('./config.php');
+// $db = new Database($config['database']);
+
+// Instantiating the Database class from the Container class
+$db = App::resolve('\System\Database');
 
 $currentUserId = 1;
 

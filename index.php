@@ -27,6 +27,8 @@ require_existing('vendor/autoload.php'); // <- Autoloads all classes through Com
 require_existing('functions.php');
 require_existing('configs/env.php');
 
+require_existing('bootstrap.php');
+
 $router = new configs\Router();
 
 $routes = require base_path('configs/routes.php');
