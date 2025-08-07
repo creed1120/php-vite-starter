@@ -5,7 +5,7 @@ session_start();
 
 // define('MODE_DEV', '%MODE%' === 'production');
 
-if($_SERVER['HTTP_HOST'] === 'localhost:3001') {
+if($_SERVER['HTTP_HOST'] === 'localhost:3000') {
 	define('MODE_DEV', true);
 	define('ROOT', dirname(__DIR__) . '/'); //<- need to pass __DIR__ to dirname() function when in development
 } elseif($_SERVER['HTTP_HOST'] === 'localhost:8000') {
