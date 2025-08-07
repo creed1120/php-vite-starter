@@ -11,4 +11,5 @@ This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` 
 
 ## Features
 
-### Adding new User Login System
+### Notes App
+### User Login System
