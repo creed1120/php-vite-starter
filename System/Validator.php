@@ -30,7 +30,7 @@ class Validator {
      * @param string $value
      * @return bool
      */
-    public static function validateEmail($value) {
+    public static function email($value) {
 
         $validatedEmail = filter_var($value, FILTER_VALIDATE_EMAIL);
 

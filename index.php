@@ -1,17 +1,11 @@
 <?php
 session_start();
-
 // Initial setup
 
 // define('MODE_DEV', '%MODE%' === 'production');
 
-if($_SERVER['HTTP_HOST'] === 'localhost:3001') {
 	define('MODE_DEV', true);
 	define('ROOT', dirname(__DIR__) . '/'); //<- need to pass __DIR__ to dirname() function when in development
-} elseif($_SERVER['HTTP_HOST'] === 'localhost:8000') {
-	define('MODE_DEV', false);
-	define('ROOT', __DIR__ . '/'); //<- and just use __DIR__ when in production
-}
 
 function require_existing(string $path) {
 	file_exists($path) && require_once($path);

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Store controller for a Note
+ *
+ * @package    php-vite-starter
+ * @author     Cedric
+ * @license    MIT
+ */
 
 // use System\Database;
 use System\App;
@@ -34,7 +41,7 @@ if(!empty($errors)) {
 if(empty($errors)) {
     $db->query('INSERT INTO notes (body, user_id) VALUES (:body, :user_id)', [
         'body' => $_POST['note-body'],
-        'user_id' => 1,
+        'user_id' => 9,
     ]);
 
     // Redirect to the notes list or show a success message

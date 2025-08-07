@@ -20,14 +20,15 @@ $db = App::resolve('\System\Database');
 
 $currentUserId = 1;
 
-$note = $db->query('SELECT * FROM notes WHERE id = :id', ['id' => $_GET['id']
+$note = $db->query('SELECT * FROM notes WHERE id = :id', [
+    'id' => $_GET['id']
 ])->findOrFail();
 
-authorize($note['user_id'] === $currentUserId, Response::FORBIDDEN);
+authorize($note['user_id'] === $currentUserId);
 
 // Load the View
 view('notes/edit.view.php', [
     'heading_name' => 'Edit Note',
+    'note' => $note,
     'errors' => [],
-    'note' => $note
 ]);

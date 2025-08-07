@@ -8,6 +8,10 @@
 
 namespace configs;
 
+use System\Middleware\Auth;
+use System\Middleware\Guest;
+use System\Middleware\Middleware;
+
 class Router {
 
 	protected $routes = [];
@@ -18,47 +22,86 @@ class Router {
 
 		/**
 		 * The above add() function is a shorter version of this code which
-		 * compoact() function 
+		 * compoact() function
+		 * 
+		 * adding Middleware to the routes array
 		 */
 		$this->routes[] = [
 			'uri' 		 => $uri,
 			'controller' => $controller,
-			'method' 	 => $method
+			'method' 	 => $method,
+			'middleware' => null
 		];
+
+		/**
+		 * return the current Router() object to allow chaining to the routes
+		 * also need to return what is being returned from the add() method the
+		 * all HTTP methods below.
+		 */ 
+		return $this;
     }
 
 	public function get($uri, $controller) {
-		$this->add('GET', $uri, $controller);
+		return $this->add('GET', $uri, $controller);
 	}
 
 	public function post($uri, $controller) {
-		$this->add('POST', $uri, $controller);
+		return $this->add('POST', $uri, $controller);
 	}
 
 	public function delete($uri, $controller) {
-		$this->add('DELETE', $uri, $controller);
+		return $this->add('DELETE', $uri, $controller);
 	}
 
 	public function update($uri, $controller) {
-		$this->add('UPDATE', $uri, $controller);
+		return $this->add('UPDATE', $uri, $controller);
 	}
 
 	public function patch($uri, $controller) {
-		$this->add('PATCH', $uri, $controller);
+		return $this->add('PATCH', $uri, $controller);
 	}
 
 	public function put($uri, $controller) {
-		$this->add('PUT', $uri, $controller);
+		return $this->add('PUT', $uri, $controller);
+	}
+
+	/**
+	 * Route Chaining Functions
+	 * 
+	 * Middleware: A bridge that takes us 
+	 * from an initial request to the core of the Application.
+	 *
+	 * @param mixed $key
+	 */
+	public function only($key) {
+		$this->routes[array_key_last($this->routes)]['middleware'] = $key;
+
+		return $this;
 	}
 
 	/**
 	 * Routes uri given to the corresponding controller
-	 *
+	 * and implements the Middleware
 	 */
 	public function route($uri, $method) {
 
 		foreach($this->routes as $route) {
 			if($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+
+				if ($route['middleware']) {
+					
+					$middleware = Middleware::MAP[$route['middleware']];
+
+					(new $middleware)->handle();
+				}
+
+				// if ($route['middleware'] === 'guest') {
+				// 	(new Guest)->handle();
+				// }
+				// if ($route['middleware'] === 'auth') {
+				// 	(new Auth)->handle();
+				// }
+
 				return require base_path($route['controller']);
 			}
 		}
@@ -66,7 +109,11 @@ class Router {
 		$this->abort();
 	}
 
-	// aborts to the error page i.e page not found
+	/**
+	 * aborts to the error page i.e page not found
+	 *
+	 * @param int $status_code
+	 */
 	public function abort($status_code = 404) {
 		http_response_code($status_code);
 		require(base_path("controllers/{$status_code}.php"));

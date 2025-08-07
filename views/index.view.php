@@ -1,19 +1,35 @@
 <?php require('includes/nav.php'); ?>
+<?php include('includes/header.php'); ?>
 
-	<section class="bg-white lg:grid dark:bg-gray-900 text-white">
+	<section class="lg:grid text-white">
 		<div class="mx-auto w-screen px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
 			<div class="mx-auto w-10/12">
 				<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
 
 					<?php foreach( $posts as $post ) : ?>
-						 <div class="h-32 p-6 rounded bg-gray-600">
-							<h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-								<?php echo htmlspecialchars($post['title']); ?>
+						<article class="rounded-[10px] border border-gray-200 bg-white px-4 pt-6 pb-4">
+						<time datetime="2022-10-10" class="block text-xs text-gray-500"> <?php echo htmlspecialchars($post['created_at']); ?></time>
+
+						<a href="#">
+							<h3 class="mt-0.5 text-lg font-medium text-gray-900">
+							<?php echo htmlspecialchars($post['title']); ?>
 							</h3>
-							<button class="text-blue-500 hover:underline mt-4 inline-block custom-btn">
-								Read more
-					</button>
+						</a>
+
+						<div class="mt-4 flex flex-wrap gap-1">
+							<span
+							class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs whitespace-nowrap text-purple-600"
+							>
+							Snippet
+							</span>
+
+							<span
+							class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs whitespace-nowrap text-purple-600"
+							>
+							JavaScript
+							</span>
 						</div>
+						</article>
 					<?php endforeach; ?>
 
 				</div>

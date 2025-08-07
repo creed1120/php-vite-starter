@@ -10,7 +10,7 @@ namespace System;
 
 class App
 {
-    // maked the container class availabe anywhere in the application
+    // make the container class availabe anywhere in the application
     protected static $container;
 
     public static function setContainer($container)

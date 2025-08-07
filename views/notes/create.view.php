@@ -1,4 +1,5 @@
 <?php include('includes/nav.php'); ?>
+<?php include('includes/header.php'); ?>
 
 <main>
     <div class="sm:w-full md:w-1/2 mx-auto px-4 py-6 sm:px-6 lg:px-8 text-gray-300">
@@ -29,16 +30,15 @@
                 </div>
             </div>
 
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-                <a href="/notes" type="button" class="text-sm/6 font-semibold text-gray-900 hover:text-gray-500">Cancel</a>
-                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+            <div class="mt-6 flex items-center justify-end gap-x-4">
+                <a href="/notes" type="button" class="text-sm/6 rounded-md bg-yellow-600 px-1 py-1.5 font-semibold text-white shadow-xs hover:bg-yellow-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600 text-center w-24">Cancel</a>
+                <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 w-24 cursor-pointer">Save</button>
             </div>
 
         </form>
     </div>
 </main>
         
-<script src="/src/scripts/repos.ts" type="module"></script>
-
+<!-- <script src="/src/scripts/repos.ts" type="module"></script> -->
 <?php addPartials('includes/gitbranch.php'); ?>
 <?php addPartials('includes/footer.php'); ?>

@@ -17,6 +17,19 @@ function var_dd($value) {
 }
 
 /**
+ * Function to render print_r variables with Pre tags
+ *
+ * @param mixed $value The variable to dump
+ * @return void
+ */
+function var_print($value) {
+	echo "<pre>";
+	print_r($value);
+	echo "</pre>";
+	die();
+}
+
+/**
  * checks for current page
  *
  * @param [string] $url

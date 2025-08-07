@@ -27,6 +27,6 @@ $contactPageArray = [
 
 // Load the View
 view('contact.view.php', [
-	'heading_name' => $_SESSION['last'],
+	'heading_name' => 'Contact Us',
 	'contactPageArray' => $contactPageArray
 ]);

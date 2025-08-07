@@ -33,12 +33,16 @@
             <!-- Profile dropdown -->
             <div class="relative ml-3">
               <div>
+                <?php if($_SESSION['user'] ?? false): ?>
                 <button id="user-menu-button" type="button" aria-expanded="false" aria-haspopup="true" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full" />
-                </button>
-              </div>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full" />
+                  </button>
+                  <?php else : ?>
+                    <a class="text-white" href="/register">Register</a>
+                  <?php endif; ?>
+                </div>
 
               <!--
                 Dropdown menu, show/hide based on menu state.
@@ -110,12 +114,6 @@
         </div> -->
       </div>
     </div>
-  </nav>
-
-  <header class="bg-white shadow-sm">
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?php echo $heading_name; ?></h1>
-    </div>
-</header>
+</nav>
 
 <!-- <script src="/src/scripts/nav.ts" type="module"></script> -->
