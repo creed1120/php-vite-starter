@@ -1,40 +1,35 @@
 <?php
+/**
+ * Array of routes to controllers
+ * 
+ * Example: uri endpoint => controller path
+ */
 
-$dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
-	$r->addRoute('GET', '/', function ($ROUTE_PARAMS) {
-		include('pages/index.php');
-	});
+// return [
+// 	'/' 		    => 'controllers/index.php',
+// 	'/about' 	    => 'controllers/about.php',
+// 	'/notes' 	    => 'controllers/notes/index.php',
+// 	'/note' 	    => 'controllers/notes/show.php',
+//     '/notes/create' => 'controllers/notes/create.php',
+// 	'/contact' 	    => 'controllers/contact.php',
+// ];
 
-	$r->addRoute('GET', '/about', function ($ROUTE_PARAMS) {
-		include('pages/about.php');
-	});
+// use configs\Router;
+// $router = new Router();
 
-	$r->addRoute('GET', '/ipsum', function ($ROUTE_PARAMS) {
-		include('pages/ipsum.php');
-	});
-});
+$router->get('/', 'controllers/index.php');
+$router->get('/about', 'controllers/about.php');
+$router->get('/contact', 'controllers/contact.php');
 
-// Fetch method and URI from somewhere
-$httpMethod = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
+$router->get('/notes', 'controllers/notes/index.php')->only('auth'); // applying auth() Middleware from Router class
+$router->get('/note', 'controllers/notes/show.php');
+$router->delete('/note', 'controllers/notes/destroy.php');
 
-// Strip query string (?foo=bar) and decode URI
-if (false !== $pos = strpos($uri, '?')) {
-	$uri = substr($uri, 0, $pos);
-}
-$uri = rawurldecode($uri);
+$router->get('/notes/create', 'controllers/notes/create.php');
+$router->post('/notes/create', 'controllers/notes/store.php');
 
-$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
-switch ($routeInfo[0]) {
-	case FastRoute\Dispatcher::NOT_FOUND:
-		http_response_code(404);
-		die('Not found...');
-		break;
-		// case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
-		// 	$allowedMethods = $routeInfo[1];
-		// 	// ... 405 Method Not Allowed
-		// 	break;
-	case FastRoute\Dispatcher::FOUND:
-		$routeInfo[1]($routeInfo[2]);
-		break;
-}
+$router->get('/note/edit', 'controllers/notes/edit.php');
+$router->patch('/note', 'controllers/notes/update.php');
+
+$router->get('/register', 'controllers/registration/create.php')->only('guest'); // applying only() Middleware from Router class
+$router->post('/register', 'controllers/registration/store.php');

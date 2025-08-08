@@ -1,19 +1,38 @@
 <?php
-
+session_start();
 // Initial setup
 
-define('ROOT', __DIR__);
-define('MODE_DEV', '%MODE%' === 'development');
+// define('MODE_DEV', '%MODE%' === 'production');
+
+	define('MODE_DEV', true);
+	define('ROOT', dirname(__DIR__) . '/'); //<- need to pass __DIR__ to dirname() function when in development
 
 function require_existing(string $path) {
 	file_exists($path) && require_once($path);
 }
 
-require_existing('vendor/autoload.php');
+// Auto loads classes from the /system folder
+// spl_autoload_register(function ($class) {e
+// 	require base_path('system/' . $class . '.php');
+// });
+
+// Database.php 	  <- Class loaded from Composer autoload.php
+// Response.php 	  <- Class loaded from Composer autoload.php
+// configs/router.php <- Class loaded from Composer autoload.php
+require_existing('vendor/autoload.php'); // <- Autoloads all classes through Composer from Namspaces
+require_existing('functions.php');
 require_existing('configs/env.php');
 
-try {
-	require_existing('configs/routes.php');
-} catch (\Throwable $th) {
-	die('Error: ' . $th->getMessage());
-}
+require_existing('bootstrap.php');
+
+$router = new configs\Router();
+
+$routes = require base_path('configs/routes.php');
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
+$router->route($uri, $method);
+
+// routeToController($uri, $routes);

@@ -1,11 +1,11 @@
 <?php
-class HTML {
-	public function __construct(public string $title, public string $lang = 'en') {
-		ob_start();
-	}
 
-	public function testFunc() {
-		echo "Test Func is working.";
+class HTML {
+
+	public $directory = 'dist/public'; // Directory to scan for CSS files
+
+	public function __construct(public string $title = '', public string $lang = 'en') {
+		ob_start();
 	}
 
 	public function __destruct() {
@@ -15,21 +15,56 @@ class HTML {
 ?>
 
 		<!DOCTYPE html>
-		<html lang="<?= $this->lang; ?>">
+		<html lang="<?= $this->lang; ?>" class="bg-gray-300" data-theme="forest">
 
 			<head>
 				<meta charset="UTF-8" />
 				<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-				<title><?= $this->title; ?></title>
+				<title><?php echo $this->title; ?></title>
+				
+				<?php if( MODE_DEV == true ) : ?>
 
-				<link href="/src/styles/tailwind.css" rel="stylesheet" />
-				<link href="/src/styles/global.scss" rel="stylesheet" />
+					<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" sizes="96x96" />
+					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
+					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
+					<link rel="manifest" href="../../favicon/site.webmanifest" />
+
+					<link href="/src/styles/tailwind.css" rel="stylesheet" />
+					<link href="/src/styles/global.scss" rel="stylesheet" />
+					<script type="module" src="/src/scripts/custom.js"></script>
+
+				<?php else : ?>
+
+					<link rel="icon" type="image/png" href="../../favicon/apple-touch-icon.png" sizes="96x96" />
+					<link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg" />
+					<link rel="shortcut icon" href="../../favicon/favicon.ico" />
+					<link rel="manifest" href="../../favicon/site.webmanifest" />
+
+					<?php
+						// Check if the directory exists
+						if (is_dir($this->directory)) {
+							$files = scandir($this->directory); // Get all files and directories in the specified path
+							foreach ($files as $file) {
+								$filePath = $this->directory . '/' . $file; // Construct the full path to the file
+								// Check if it's a file and has a .css extension
+								if (is_file($filePath) && pathinfo($file, PATHINFO_EXTENSION) === 'css') {
+									echo '<link rel="stylesheet" href="../../dist/public/'. $file .'" />'; // Echo the name of the CSS file
+								}
+								if (is_file($filePath) && pathinfo($file, PATHINFO_EXTENSION) === 'js') {
+									echo '<script type="module" src="../../dist/public/'. $file .'"></script>'; // Echo the name of the JS file
+								}
+							}
+						}
+					?>
+					
+				<?php endif; ?>
+
 			</head>
-
-			<body class="w-screen h-screen flex items-center justify-center bg-neutral-50">
-				<?= $output; ?>
+			
+			<body class="font-inter text-gray-800">
+				<?php echo $output; ?>
 			</body>
 
 		</html>
