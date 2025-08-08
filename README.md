@@ -15,11 +15,6 @@ This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` 
 Notes App
 `
 
-<h1 style="margin-bottom:0">PHP-Vite Starter Repo <span style="font-size:1rem;">by <a href="https://nititech.de" target="_blank">nititech</a></span></h1>
-
-php-vite-starter is a modern vanilla PHP-Vite starter repository designed to provide developers with the essential tools to kickstart their development of modern PHP applications.\
-This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` plugin](https://github.com/donnikitos/vite-plugin-php) to improve developer experience and provide various features to streamline development.
-
 ## Features
 
 -   **Auto-refresh / auto-reloading**
