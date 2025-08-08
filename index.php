@@ -12,7 +12,7 @@ function require_existing(string $path) {
 }
 
 // Auto loads classes from the /system folder
-// spl_autoload_register(function ($class) {e
+// spl_autoload_register(function ($class) {
 // 	require base_path('system/' . $class . '.php');
 // });
 
