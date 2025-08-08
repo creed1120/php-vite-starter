@@ -16,7 +16,7 @@ class Auth
     public function handle()
     {
         // Check if user is authenticated
-        if (! $_SESSION['user'] ?? false) {
+        if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
             header('Location: /');
             exit();
         }
