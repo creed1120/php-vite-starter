@@ -1,7 +1,5 @@
 <?php
 /**
- * Router class
- * 
  * Route the request to the appropriate controller based on the URI.
  *
  * @param string $uri The request URI.
@@ -10,6 +8,8 @@
 
 namespace configs;
 
+use System\Middleware\Auth;
+use System\Middleware\Guest;
 use System\Middleware\Middleware;
 
 class Router {
@@ -89,14 +89,23 @@ class Router {
 
 		foreach($this->routes as $route) {
 			if($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
+				
+				// check if there is a middleware chained to a route
+				if ($route['middleware']) {
+					// referencing the MAP constant, passing in whatever the $key is.
+					//=========================================================
+					// 'guest' => Guest::class | 'auth' => Auth::class are now 
+					//  saved to the $middleware variable
+					$middleware = Middleware::MAP[$route['middleware']];
 
-				Middleware::resolve($route['middleware']);
+					// instanciate a new $middleware instance and call
+					// the handle() method on it.
+					(new $middleware)->handle();
+				}
 
 				/**
 				 * handlers for the Middleware
-				 * (stored within their own file):
-				 * System/Middleware/Guest
-				 * System/Middleware/Auth
+				 * (stored within their own file)
 				 * 
 				 */
 				// if ($route['middleware'] === 'guest') {
@@ -128,3 +137,11 @@ class Router {
 	}
 	
 }
+
+// function routeToController($uri, $routes) {
+// 	if( array_key_exists($uri, $routes) ) {
+// 		require $routes[$uri];
+// 	} else {
+// 		abort();
+// 	}
+// }

@@ -1,4 +1,13 @@
 <?php
+/**
+ * Guest Middleware
+ * 
+ * handler for the Middleware (stored within their own file)
+ * 
+ * provides a handle() method to determine & evaluate 
+ * wether the request can continue to the core of the application.
+ * 
+ */
 
 namespace System\Middleware;
 
@@ -6,7 +15,7 @@ class Guest
 {
     public function handle()
     {
-        // Example: Check if user is authenticated
+        // Check if user is authenticated
         if ($_SESSION['user'] ?? false) {
             header('Location: /');
             exit();

@@ -15,7 +15,7 @@ class HTML {
 ?>
 
 		<!DOCTYPE html>
-		<html lang="<?= $this->lang; ?>" class="bg-gray-200" data-theme="forest">
+		<html lang="<?= $this->lang; ?>" class="bg-gray-300" data-theme="forest">
 
 			<head>
 				<meta charset="UTF-8" />
