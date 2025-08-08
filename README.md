@@ -11,10 +11,10 @@ This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` 
 
 ## Enhancements
 
-`
+```
 Notes App
 User login/Registration System
-`
+```
 
 ## Features
 
