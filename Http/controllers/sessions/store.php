@@ -4,6 +4,7 @@
  * 
  **************************************/
 
+use Http\forms\LoginForm;
 use System\App;
 use System\Validator;
 
@@ -17,20 +18,30 @@ $db = App::resolve('\System\Database');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$errors = [];
+$form = new LoginForm();
 
-if(! Validator::email($email)) {
-    $errors['email'] = 'Please Enter a valid email address.';
-}
-if(! Validator::chkString($password)) {
-    $errors['password'] = 'Please provide a password with at least 10 characters.';
-}
-
-if(!empty($errors)) {
+if (! $form->validate($email, $password)) {
     return view('sessions/create.view.php', [
-        'errors' => $errors,
+        'errors' => $form->errors()
     ]);
 }
+
+/*********************************************************************
+ * Refactored the $errors & login validation into a dedicated class
+ * LoginForm() above.
+ *********************************************************************/
+// $errors = [];
+// if(! Validator::email($email)) {
+//     $errors['email'] = 'Please Enter a valid email address.';
+// }
+// if(! Validator::chkString($password)) {
+//     $errors['password'] = 'Please provide a password with at least 10 characters.';
+// }
+// if(!empty($errors)) {
+//     return view('sessions/create.view.php', [
+//         'errors' => $errors,
+//     ]);
+// }
 
 // Grab Database class from the App class Container property
 $db = App::resolve('\System\Database');

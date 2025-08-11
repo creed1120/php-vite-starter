@@ -12,7 +12,7 @@ include('includes/nav.php'); ?>
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form action="/sessions" method="POST" class="space-y-6">
+                <form action="/" method="POST" class="space-y-6">
                     <div>
                         <label for="email" class="block text-sm/6 font-medium">Email address</label>
                         <div class="mt-1">
