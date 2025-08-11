@@ -30,7 +30,7 @@ class Middleware
 
         // look in the MAP constant and look for
         // the $key (class path) i.e: 'guest' => Guest::class
-        $middleware = static::MAP[$key] ?? false;
+        $middleware = static::MAP[$key];
 
         if (! $middleware) {
             throw new Exception("There is no object associated with the '{$key}' key.");

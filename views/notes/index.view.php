@@ -2,7 +2,7 @@
 <?php include('includes/header.php'); ?>
 
 <main>
-	<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 text-2xl text-white">
+	<div class="mx-auto w-full lg:w-10/12 py-4 px-4 lg:px-0 text-2xl text-white">
         <?php foreach( $notes as $note ) : ?>
             <article
             class="rounded-lg border border-gray-100 bg-white mb-4 p-4 shadow-xs transition hover:shadow-lg sm:p-6"

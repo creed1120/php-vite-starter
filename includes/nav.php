@@ -4,7 +4,7 @@
 </nav> -->
 
 <nav class="bg-gray-800">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto w-10/12">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
           <div class="shrink-0">
@@ -15,7 +15,9 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" aria-current="page" <?php echo isCurrentPage('/') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Home</a>
               <a href="/about" <?php echo isCurrentPage('/about') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>About Us</a>
+              <?php if(isset($_SESSION['user'])) : ?>
               <a href="/notes" <?php echo isCurrentPage('/notes') || isCurrentPage('/note') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Notes</a>
+              <?php endif; ?>
               <a href="/contact" <?php echo isCurrentPage('/contact') ? 'class="bg-gray-900 rounded-md px-3 py-2 text-white"' : 'class="text-gray-300 rounded-md px-3 py-2 hover:bg-gray-700 hover:text-white"' ?>>Contact</a>
             </div>
           </div>
@@ -35,14 +37,16 @@
               <div>
                 <?php if($_SESSION['user'] ?? false): ?>
                 <button id="user-menu-button" type="button" aria-expanded="false" aria-haspopup="true" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800">
-                  <span class="absolute -inset-1.5"></span>
-                  <span class="sr-only">Open user menu</span>
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full" />
-                  </button>
-                  <?php else : ?>
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-8 rounded-full" />
+                </button>
+                <?php else : ?>
+                  <div class="inline-flex justify-evenly w-40">
                     <a class="text-white" href="/register">Register</a>
-                  <?php endif; ?>
-                </div>
+                    <a class="text-white" href="/login">Log In</a>
+                <?php endif; ?>
+              </div>
 
               <!--
                 Dropdown menu, show/hide based on menu state.
@@ -61,6 +65,14 @@
                 <a id="user-menu-item-2" role="menuitem" href="#" tabindex="-1" class="block px-4 py-2 text-sm text-gray-700">Sign out</a>
               </div> -->
             </div>
+            <?php if($_SESSION['user'] ?? false) : ?>
+              <div class="relative ml-3">
+                <form action="/sessions" method="POST">
+                  <input type="hidden" name="_method" value="DELETE">
+                  <button class="text-gray-200 cursor-pointer">Log Out</button>
+                </form>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
         <div class="-mr-2 flex md:hidden">

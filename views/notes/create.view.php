@@ -2,8 +2,8 @@
 <?php include('includes/header.php'); ?>
 
 <main>
-    <div class="sm:w-full md:w-1/2 mx-auto px-4 py-6 sm:px-6 lg:px-8 text-gray-300">
-        <form method="POST" action="/notes/create">
+    <div class="mx-auto w-full lg:w-10/12 py-4 px-4 lg:px-0 text-gray-300">
+        <form method="POST" action="/notes">
             <!-- <input type="hidden" name="_method" value="POST"> -->
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">

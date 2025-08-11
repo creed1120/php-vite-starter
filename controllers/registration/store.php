@@ -61,9 +61,11 @@ if($user) {
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
     // mark that the user has logged in
-    $_SESSION['user'] = [
+    
+    // in functions.php
+    login([
         'email' => $email
-    ];
+    ]);
 
     /**
      * TODO: Create a User Dashboard page and redirect users there if registration is successful.

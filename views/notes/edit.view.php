@@ -2,7 +2,7 @@
 <?php include('includes/header.php'); ?>
 
 <main>
-    <div class="sm:w-full md:w-1/2 mx-auto px-4 py-6 sm:px-6 lg:px-8 text-gray-300">
+    <div class="m-auto w-full pb-10 px-4 lg:px-0 lg:w-10/12 text-gray-300">
         <form method="POST" action="/note">
             <input type="hidden" name="_method" value="PATCH">
             <input type="hidden" name="id" value="<?php echo $note['id']; ?>">

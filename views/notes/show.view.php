@@ -2,7 +2,7 @@
 <?php include('includes/header.php'); ?>
 
 <main>
-    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="mx-auto w-full lg:w-10/12 py-4 px-4 lg:px-0">
         <a class="inline-block text-xl text-blue-950 underline mb-6" href="/notes">Go Back</a>
 
         <p class="text-2xl"><?php echo htmlspecialchars($note['body']); ?></p>

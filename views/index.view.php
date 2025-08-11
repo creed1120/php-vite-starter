@@ -1,10 +1,12 @@
 <?php require('includes/nav.php'); ?>
 <?php include('includes/header.php'); ?>
 
-	<section class="lg:grid text-white">
-		<div class="mx-auto w-screen px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
-			<div class="mx-auto w-10/12">
-				<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+	<section class="text-white m-auto w-full py-10 px-4 lg:px-0 lg:w-10/12">
+		<?php if (isset($_SESSION['user'])) : ?>
+			<h3 class=" text-gray-500 text-lg lg:text-2xl">Welcome, <?php echo $_SESSION['user']['email']; ?></h3>
+		<?php endif; ?>
+
+				<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 pt-6">
 
 					<?php foreach( $posts as $post ) : ?>
 						<article class="rounded-[10px] border border-gray-200 bg-white px-4 pt-6 pb-4">
@@ -33,8 +35,7 @@
 					<?php endforeach; ?>
 
 				</div>
-			</div>
-		</div>
+
 	</section>
 
 	<section>
