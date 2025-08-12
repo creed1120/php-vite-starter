@@ -1,30 +1,31 @@
 <?php
+
 /**************************************
  * Sessions store controller
  * 
  **************************************/
 
 use Http\forms\LoginForm;
-use System\App;
-use System\Validator;
+use System\Authenticator;
 
 require('System/main.php');
 
 $layoutTemplate = new HTML('Modern PHP + Vite sethp');
-
-// Grab Database class from the App class Container property
-$db = App::resolve('\System\Database');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 
 $form = new LoginForm();
 
-if (! $form->validate($email, $password)) {
-    return view('sessions/create.view.php', [
-        'errors' => $form->errors()
-    ]);
+if ($form->validate($email, $password)) {
+
+    if ((new Authenticator)->attempt($email, $password)) {
+        redirect('/');
+    }
+
+    $form->error('email', 'There was no matching account with that email address and password.');
 }
+
 
 /*********************************************************************
  * Refactored the $errors & login validation into a dedicated class
@@ -43,28 +44,38 @@ if (! $form->validate($email, $password)) {
 //     ]);
 // }
 
+return redirect('/login');
+
+// return view('sessions/create.view.php', [
+//     'errors' => $form->errors()
+// ]);
+
+// return view('sessions/create.view.php', [
+//     'errors' => [
+//         'email' => 'There was no matching account with that email address and password.'
+//     ]
+// ]);
+
+
+
+
+
 // Grab Database class from the App class Container property
-$db = App::resolve('\System\Database');
+// $db = App::resolve('\System\Database');
 
-// check if account already exist
-$user = $db->query('SELECT * FROM users WHERE email = :email', [
-    'email' => $email
-])->find();
+// // check if account already exist
+// $user = $db->query('SELECT * FROM users WHERE email = :email', [
+//     'email' => $email
+// ])->find();
 
-if ($user) {
-    if (password_verify($password, $user['password'])) {
+// if ($user) {
+//     if (password_verify($password, $user['password'])) {
         
-        login([
-            'email' => $email
-        ]);
+//         login([
+//             'email' => $email
+//         ]);
 
-        header('Location: /');
-        exit();
-    }
-}
-
-return view('sessions/create.view.php', [
-    'errors' => [
-        'email' => 'There was no matching account with that email address and password.'
-    ]
-]);
+//         header('Location: /');
+//         exit();
+//     }
+// }

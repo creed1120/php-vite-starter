@@ -91,29 +91,7 @@ function view($path, $attributes = []) {
 	require base_path('views/' . $path);
 }
 
-/**
- * Function to login authorized user
- *
- */
-function login($user) {
-	$_SESSION['user'] = [
-		'email' => $user['email']
-	];
-
-	session_regenerate_id(true);
-}
-
-/**
- * Function to logout user
- *
- */
-function logout() {
-	// Clear out the $_SESSION super global
-	$_SESSION = [];
-	// remove all data from the Session
-	session_destroy();
-	// store the $_SESSION cookie parameters in $params variable
-	$params = session_get_cookie_params();
-	// set the cookie to be in the past to delete it
-	setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+function redirect($path) {
+	header("Location: {$path}");
+    exit();
 }

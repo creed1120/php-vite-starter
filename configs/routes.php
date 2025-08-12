@@ -34,5 +34,5 @@ $router->get('/register', 'registration/create.php')->only('guest'); // applying
 $router->post('/register', 'registration/store.php');
 
 $router->get('/login', 'sessions/create.php')->only('guest');
-$router->post('/sessions', 'sessions/store.php')->only('guest');
+$router->post('/sessions', 'sessions/store.php');
 $router->delete('/sessions', 'sessions/destroy.php')->only('auth');

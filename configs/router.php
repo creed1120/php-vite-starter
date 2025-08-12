@@ -123,7 +123,7 @@ class Router {
 	 */
 	public function abort($status_code = 404) {
 		http_response_code($status_code);
-		require(base_path("controllers/{$status_code}.php"));
+		require(base_path("Http/controllers/{$status_code}.php"));
 		die();
 	}
 	

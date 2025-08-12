@@ -12,7 +12,7 @@ include('includes/nav.php'); ?>
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form action="/" method="POST" class="space-y-6">
+                <form action="/sessions" method="POST" class="space-y-6">
                     <div>
                         <label for="email" class="block text-sm/6 font-medium">Email address</label>
                         <div class="mt-1">
@@ -33,15 +33,22 @@ include('includes/nav.php'); ?>
                         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Log In</button>
                     </div>
 
-                    <?php if(isset($errors['email']) || isset($errors['password'])) : ?>
+                    <?php if(isset($errors['email'])) : ?>
                                 
                         <div role="alert" class="alert alert-error">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span><?php echo $errors['email'] ?? $errors['password'] ?></span>
+                        <span><?php echo $errors['email']; ?></span>
                         </div>
-                        
+                    <?php elseif(isset($errors['password'])) : ?>
+
+                        <div role="alert" class="alert alert-error">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><?php echo $errors['password']; ?></span>
+                        </div>  
                     <?php endif; ?>
                 </form>
 
