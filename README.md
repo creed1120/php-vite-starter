@@ -14,6 +14,9 @@ This repository utilizes [Vite](https://vitejs.dev/) and the [`vite-plugin-php` 
 ```
 Notes App
 User login/Registration System
+Refactor of file structure
+	-root
+		-Http
 ```
 
 ## Features
